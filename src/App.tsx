@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Window } from "./components/Window";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Window rowHeight={40}>
+        {new Array(15000)
+          .fill({})
+          .map((_, index) => ({ id: index }))
+          .map((item) => (
+            <li key={item.id}>{item.id}</li>
+          ))}
+      </Window>
     </div>
   );
 }
